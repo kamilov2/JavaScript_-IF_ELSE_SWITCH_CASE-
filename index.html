@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript shartli operatorlar bo'yicha qo'llanma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: relative;
+            overflow: auto;
+            margin-top: 10px;
+        }
+        code {
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript shartli operatorlar bo'yicha qo'llanma</h1>
+
+    <h2>1. If-else</h2>
+    <p><code>if</code> va <code>else</code> shartli operatorlari shartlarni tekshirish uchun ishlatiladi.</p>
+
+    <h3>1.1 If</h3>
+    <p>Agar shart bajarilsa, kod bajariladi.</p>
+    <pre id="codeBlock1">
+        <code>
+let age = 20;
+
+if (age >= 18) {
+    console.log("Siz katta yoshdasiz.");
+}
+        </code>
+        <button class="copy-button" onclick="copyCode('codeBlock1')">Copy</button>
+    </pre>
+
+    <h3>1.2 If-else</h3>
+    <p>Agar shart bajarilsa, birinchi kod bajariladi, aks holda ikkinchi kod bajariladi.</p>
+    <pre id="codeBlock2">
+        <code>
+let age = 16;
+
+if (age >= 18) {
+    console.log("Siz katta yoshdasiz.");
+} else {
+    console.log("Siz hali katta yoshda emassiz.");
+}
+        </code>
+        <button class="copy-button" onclick="copyCode('codeBlock2')">Copy</button>
+    </pre>
+
+    <h3>1.3 If-else if-else</h3>
+    <p>Birinchi shart bajarilmasa, keyingi shartlar tekshiriladi va oxirgi <code>else</code> qismi bajariladi.</p>
+    <pre id="codeBlock3">
+        <code>
+let age = 65;
+
+if (age < 18) {
+    console.log("Siz hali katta yoshda emassiz.");
+} else if (age >= 18 && age < 65) {
+    console.log("Siz katta yoshdasiz.");
+} else {
+    console.log("Siz pensiya yoshidasiz.");
+}
+        </code>
+        <button class="copy-button" onclick="copyCode('codeBlock3')">Copy</button>
+    </pre>
+
+    <h2>2. Switch-case</h2>
+    <p><code>switch</code> va <code>case</code> operatorlari ko'p shartlarni tekshirish uchun ishlatiladi.</p>
+
+    <h3>2.1 Switch-case</h3>
+    <p>O'zgaruvchi qiymatiga qarab, tegishli <code>case</code> bajariladi.</p>
+    <pre id="codeBlock4">
+        <code>
+let fruit = "olma";
+
+switch (fruit) {
+    case "olma":
+        console.log("Bu olma.");
+        break;
+    case "banan":
+        console.log("Bu banan.");
+        break;
+    case "gilos":
+        console.log("Bu gilos.");
+        break;
+    default:
+        console.log("Bunday meva yo'q.");
+}
+        </code>
+        <button class="copy-button" onclick="copyCode('codeBlock4')">Copy</button>
+    </pre>
+
+    <h3>2.2 Multiple cases</h3>
+    <p>Bir nechta <code>case</code> bloklari bir xil kodni bajarishi mumkin.</p>
+    <pre id="codeBlock5">
+        <code>
+let day = 2;
+
+switch (day) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        console.log("Bu ish kuni.");
+        break;
+    case 6:
+    case 7:
+        console.log("Bu dam olish kuni.");
+        break;
+    default:
+        console.log("Noto'g'ri kun.");
+}
+        </code>
+        <button class="copy-button" onclick="copyCode('codeBlock5')">Copy</button>
+    </pre>
+
+    <script>
+        function copyCode(id) {
+            const codeBlock = document.getElementById(id);
+            const code = codeBlock.querySelector('code').innerText;
+
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = code;
+            document.body.appendChild(tempTextArea);
+
+            tempTextArea.select();
+            document.execCommand('copy');
+
+            document.body.removeChild(tempTextArea);
+
+            alert('Kod nusxalandi!');
+        }
+    </script>
+</body>
+</html>
